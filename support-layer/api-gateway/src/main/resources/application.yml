@@ -1,0 +1,19 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: api-gateway
+
+zuul:
+  routes:
+    tenants-service: /tenants-service/**
+    employees-service: /employees-service/**
+
+eureka:
+  client:
+    allow-redirects: true
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: ${EUREKA_URI:http://localhost:8082/eureka}
